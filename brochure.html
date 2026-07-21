@@ -83,7 +83,7 @@
   </style>
   <div id="book-stage" class="reveal">
     <div id="book-frame" aria-label="Bedrijfsbrochure Van Dis Solutions, bladerbaar">
-      <img id="book-page" src="/img/brochure/pagina-1.webp" width="1406" height="1988" alt="Brochurepagina 1: cover — Uw partner in industriële automatisering en paneelbouw">
+      <img id="book-page" src="/img/brochure/blad-v2-1.webp" width="1406" height="1988" alt="Brochurepagina 1: cover — Uw partner in industriële automatisering en paneelbouw">
     </div>
     <div class="book-hint">▸ Pijltjes of vegen om te bladeren · tik op de pagina om te lezen en in te zoomen</div>
     <div id="book-controls">
@@ -98,7 +98,7 @@
   </div>
   <div id="lees" role="dialog" aria-label="Brochure leesweergave">
     <button id="lees-sluit" aria-label="Sluiten">✕</button>
-    <img id="lees-img" src="/img/brochure/pagina-1.webp" alt="Brochurepagina in leesweergave">
+    <img id="lees-img" src="/img/brochure/blad-v2-1.webp" alt="Brochurepagina in leesweergave">
     <div id="lees-nav">
       <button id="ls-vorige" aria-label="Vorige">←</button>
       <span id="lees-teller">1 / 10</span>
@@ -115,12 +115,12 @@
     var lees=document.getElementById('lees');
     var leesImg=document.getElementById('lees-img');
     var leesTeller=document.getElementById('lees-teller');
-    for(var p=2;p<=totaal;p++){ new Image().src='/img/brochure/pagina-'+p+'.webp'; }
+    for(var p=2;p<=totaal;p++){ new Image().src='/img/brochure/blad-v2-'+p+'.webp'; }
     function sync(){
       teller.textContent=i+' / '+totaal;
       leesTeller.textContent=i+' / '+totaal;
       vorige.disabled=(i===1); volgende.disabled=(i===totaal);
-      leesImg.src='/img/brochure/pagina-'+i+'.webp';
+      leesImg.src='/img/brochure/blad-v2-'+i+'.webp';
     }
     function toon(n, richting){
       if(bezig||n<1||n>totaal)return;
@@ -128,7 +128,7 @@
       img.classList.add(richting>0?'uit-r':'uit-l');
       setTimeout(function(){
         i=n;
-        img.src='/img/brochure/pagina-'+i+'.webp';
+        img.src='/img/brochure/blad-v2-'+i+'.webp';
         img.alt='Brochurepagina '+i+' van Van Dis Solutions';
         sync();
         img.classList.remove('uit-r','uit-l');
