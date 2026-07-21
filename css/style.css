@@ -178,7 +178,7 @@ footer .flogo img{height:40px;margin-bottom:16px}
   #hamburger{display:block}
   .grid3,.grid2,.split,.steps,.form-grid{grid-template-columns:1fr}
   footer .inner{grid-template-columns:1fr}
-  #signal{display:none}
+  #signal{left:10px}
   .page-hero{padding-top:150px}
   #cookiebar{padding:18px 20px}
 }

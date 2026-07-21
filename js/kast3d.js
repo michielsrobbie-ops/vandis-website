@@ -337,9 +337,11 @@
 
   // ---------- resize ----------
   function resize() {
-    const w = container.clientWidth, h = Math.max(360, w * 0.85);
+    const w = container.clientWidth, h = Math.min(Math.max(340, w * 0.85), innerHeight * 0.62);
     renderer.setSize(w, h);
     camera.aspect = w / h;
+    // op smalle/staande schermen verder uitzoomen zodat de hele kast past
+    camera.position.z = camera.aspect < 1.15 ? Math.min(8.2 / Math.max(camera.aspect, 0.6), 13.5) : 8.2;
     camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(container);
