@@ -340,8 +340,11 @@
     const w = container.clientWidth, h = Math.min(Math.max(340, w * 0.85), innerHeight * 0.62);
     renderer.setSize(w, h);
     camera.aspect = w / h;
-    // op smalle/staande schermen verder uitzoomen zodat de hele kast past
-    camera.position.z = camera.aspect < 1.15 ? Math.min(8.2 / Math.max(camera.aspect, 0.6), 13.5) : 8.2;
+    // camera exact zo ver terug dat de hele kast (incl. labels) in beeld past
+    const halfW = 3.4, halfH = 2.6, tanV = Math.tan(camera.fov * Math.PI / 360);
+    const zVoorHoogte = halfH / tanV;
+    const zVoorBreedte = halfW / (tanV * camera.aspect);
+    camera.position.z = Math.min(Math.max(zVoorHoogte, zVoorBreedte) + 0.6, 16);
     camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(container);
