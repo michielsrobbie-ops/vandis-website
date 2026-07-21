@@ -298,6 +298,7 @@ const compInfo={
  relais:{c:"COMP: RELAISGROEP",t:"Besturingspanelen & -kasten",x:"Schakelen, beveiligen, signaleren. Elke relaisgroep wordt door ons ontworpen, opgebouwd en getest volgens de geldende normen.",l:"/besturingspanelen/"},
  klemmen:{c:"COMP: KLEMMENSTROOK",t:"Panelenbouw",x:"Nette, gedocumenteerde bedrading is ons visitekaartje. In onze werkplaats bouwen wij panelen in serie én enkelstuks, altijd volledig getest.",l:"/panelenbouw/"},
  hmi:{c:"COMP: HMI-PANEEL",t:"Software engineering",x:"Bediening en inzicht voor de operator. Wij ontwikkelen HMI- en SCADA-oplossingen die uw proces visueel en bestuurbaar maken.",l:"/software-engineering/"},
+ pcb:{c:"COMP: PRINTPLAAT (PCB)",t:"PCB-ontwikkeling",x:"Een complete machinebesturing op één eigen printplaat. Wij ontwerpen en programmeren PCB's in eigen beheer, met eerlijk advies over wanneer dat rendabel is.",l:"/pcb-ontwikkeling/"},
  motor:{c:"COMP: MOTORBEVEILIGING",t:"Industriële automatisering",x:"Van motorsturing tot complete productielijn: wij leveren totaaloplossingen voor projectpartners, installatiebedrijven en de agrarische sector.",l:"/industriele-automatisering/"}
 };
 const kiC=document.getElementById('ki-code'),kiT=document.getElementById('ki-title'),kiX=document.getElementById('ki-text'),kiL=document.getElementById('ki-link');
@@ -318,12 +319,12 @@ window.vdsKastMode=function(exploded){
     if(exploded){
       kiC.textContent="// EXPLODED VIEW — ZES DIENSTEN";
       kiT.textContent="Elk onderdeel is een specialisme";
-      kiX.textContent="De kast valt uiteen in zes componenten en elk component staat voor een dienst: van PLC-programmering tot paneelbouw. Klik op een onderdeel voor de details.";
+      kiX.textContent="De kast valt uiteen in zeven componenten en elk component staat voor een dienst: van PLC-programmering tot paneelbouw. Klik op een onderdeel voor de details.";
       kiL.style.display='none';
     }else{
       kiC.textContent="// SYSTEEM COMPLEET";
       kiT.textContent="Eén werkend geheel";
-      kiX.textContent="Zes specialismen, samengebouwd tot één betrouwbare besturing. Precies zo werkt een traject bij Van Dis: alles onder één dak, alles op elkaar afgestemd.";
+      kiX.textContent="Zeven specialismen, samengebouwd tot één betrouwbare besturing. Precies zo werkt een traject bij Van Dis: alles onder één dak, alles op elkaar afgestemd.";
       kiL.href='/diensten/';kiL.textContent='Bekijk alle diensten →';kiL.style.display='inline-block';
     }
     box.classList.remove('fading');

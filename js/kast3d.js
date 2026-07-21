@@ -125,7 +125,7 @@
     lb.material.opacity = 0.85;
     g.add(lb);
     g.userData.label = lb;
-    const DIENST = { plc: 'PLC-AUTOMATISERING', voeding: 'HARDWARE ENGINEERING', relais: 'BESTURINGSPANELEN', klemmen: 'PANELENBOUW', hmi: 'SOFTWARE ENGINEERING', motor: 'INDUSTRI\u00cbLE AUTOMATISERING' };
+    const DIENST = { plc: 'PLC-AUTOMATISERING', voeding: 'HARDWARE ENGINEERING', relais: 'BESTURINGSPANELEN', klemmen: 'PANELENBOUW', hmi: 'SOFTWARE ENGINEERING', motor: 'INDUSTRI\u00cbLE AUTOMATISERING', pcb: 'PCB-ONTWIKKELING' };
     const dl = labelSprite('\u25b8 ' + DIENST[key]);
     dl.position.set(0, (g.userData.labelY ?? 0.6) + 0.34, 0.35);
     dl.material.opacity = 0;
@@ -171,6 +171,18 @@
       b.position.x = i * 0.17 - 0.68; g.add(b);
     }
     g.userData.labelY = 0.5;
+  });
+
+  comp('pcb', '07 // PCB', 2.0, 1.22, new THREE.Vector3(2.3, 1.7, 2.0), g => {
+    const board = holoBox(0.95, 0.6, 0.07, 0x3fbf5a, { faceOpacity: .35, edgeOpacity: .8 });
+    g.add(board);
+    const chip = holoBox(0.3, 0.22, 0.1, WHITE, { edgeOpacity: .7 });
+    chip.position.set(-0.12, 0.05, 0.06); g.add(chip);
+    [[0.25, -0.15], [0.32, 0.12], [-0.35, -0.14]].forEach(([x, y]) => {
+      const l = sprite(glowWhite, 0.16, 0x3fbf5a); l.position.set(x, y, 0.1); g.add(l);
+      (g.userData.leds = g.userData.leds || []).push(l);
+    });
+    g.userData.hsX = 0.42; g.userData.hsY = 0.32; g.userData.labelY = 0.55;
   });
 
   // HMI met live scherm

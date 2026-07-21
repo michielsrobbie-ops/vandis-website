@@ -236,7 +236,7 @@
   // ---------- stations ----------
   const stations = [];
   function station(i, name, build) {
-    const t = (i + 1) / 7;
+    const t = (i + 1) / 8;
     const p = path.getPoint(t);
     const ahead = path.getPoint(Math.min(t + 0.012, 1));
     const side = new THREE.Vector3().subVectors(ahead, p).normalize().cross(new THREE.Vector3(0, 1, 0));
@@ -328,10 +328,23 @@
     g.userData.labelH = 6.6;
   });
 
-  // 06 — automatisering: poort óp het pad waar je doorheen vliegt
+  // 06 — PCB: zwevende printplaat
+  station(5, 'PCB-ONTWIKKELING', g => {
+    const board = holo(new THREE.BoxGeometry(3.8, 2.4, 0.16), 0x3fbf5a, .3, .45);
+    board.position.y = 3.2; board.rotation.x = -0.25; g.add(board);
+    const chip = holo(new THREE.BoxGeometry(1.1, 0.8, 0.3), WHITE, .4, .5);
+    chip.position.set(-0.5, 3.3, 0.2); chip.rotation.x = -0.25; g.add(chip);
+    for (let i = 0; i < 5; i++) {
+      const led = sprite(0.5, i % 2 ? 0x3fbf5a : RED);
+      led.position.set(-1.5 + i * 0.75, 2.4 + (i % 2) * 1.6, 0.3); g.add(led);
+    }
+    g.userData.labelH = 5.6;
+  });
+
+  // 07 — automatisering: poort óp het pad waar je doorheen vliegt
   let portal;
-  station(5, 'INDUSTRIËLE AUTOMATISERING', (g) => {
-    const t = 6 / 7;
+  station(6, 'INDUSTRIËLE AUTOMATISERING', (g) => {
+    const t = 7 / 8;
     const p = path.getPoint(t), ahead = path.getPoint(t + 0.01);
     g.position.set(p.x, 0, p.z);
     g.lookAt(new THREE.Vector3(ahead.x, 0, ahead.z));
@@ -389,7 +402,8 @@
     { n: '03', t: 'PLC-automatisering', x: 'De PLC is het brein. Wij programmeren en configureren besturingen van alle grote merken, tot en met de inbedrijfstelling.', l: '/plc-automatisering/' },
     { n: '04', t: 'Hardware engineering', x: 'Onder elke betrouwbare installatie ligt een doordacht schema. Voedingen, beveiligingen en bekabeling, exact gedimensioneerd.', l: '/hardware-engineering/' },
     { n: '05', t: 'Software engineering', x: 'HMI, SCADA en besturingssoftware maken het proces zichtbaar en bestuurbaar, voor operator én management.', l: '/software-engineering/' },
-    { n: '06', t: 'Industriële automatisering', x: 'Alles komt samen: vlieg door de poort: één partner die het complete traject draagt, van schets tot productielijn.', l: '/industriele-automatisering/' },
+    { n: '06', t: 'PCB-ontwikkeling', x: 'Een complete machinebesturing op één eigen printplaat: ontwerp en embedded programmering in eigen beheer, met eerlijk oplage-advies.', l: '/pcb-ontwikkeling/' },
+    { n: '07', t: 'Industriële automatisering', x: 'Alles komt samen: vlieg door de poort: één partner die het complete traject draagt, van schets tot productielijn.', l: '/industriele-automatisering/' },
   ];
   const panel = document.getElementById('panel');
   const pN = document.getElementById('p-num'), pT = document.getElementById('p-title'),
@@ -402,22 +416,22 @@
     panel.classList.add('fading');
     setTimeout(() => {
       if (i < 0) {
-        pN.textContent = '// SYSTEEMVLUCHT 01—06';
+        pN.textContent = '// SYSTEEMVLUCHT 01—07';
         pT.textContent = 'Vlieg door onze techniek';
-        pX.textContent = 'Scroll om op te stijgen. Je vliegt langs zes stations, samen één traject onder één dak.';
-        pL.style.display = 'none'; pC.textContent = '00/06';
-      } else if (i > 5) {
+        pX.textContent = 'Scroll om op te stijgen. Je vliegt langs zeven stations, samen één traject onder één dak.';
+        pL.style.display = 'none'; pC.textContent = '00/07';
+      } else if (i > 6) {
         pN.textContent = '// EINDTEST — GESLAAGD';
         pT.textContent = 'Signaal afgeleverd';
         pX.textContent = 'Van eerste schets tot werkende installatie: dit is wat één partner voor het hele traject betekent.';
         pL.href = '/contact/'; pL.textContent = 'Start uw traject →'; pL.style.display = 'inline-block';
-        pC.textContent = '06/06';
+        pC.textContent = '07/07';
       } else {
         const s = data[i];
         pN.textContent = '// STATION ' + s.n + ' — ' + s.t.toUpperCase();
         pT.textContent = s.t; pX.textContent = s.x;
         pL.href = s.l; pL.textContent = 'Bekijk ' + s.t + ' →'; pL.style.display = 'inline-block';
-        pC.textContent = s.n + '/06';
+        pC.textContent = s.n + '/07';
       }
       panel.classList.remove('fading');
     }, 150);
@@ -471,7 +485,7 @@
       s.lb.material.opacity = lit ? 1 : 0.25;
       if (lit) active = i;
     });
-    if (prog > 0.965) active = 6;
+    if (prog > 0.965) active = 7;
     else if (prog < 0.02) active = -1;
     setStation(active);
     pF.style.width = (prog * 100) + '%';
