@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Download de bedrijfsbrochure | Van Dis Solutions</title>
-<meta name="description" content="Download de bedrijfsbrochure van Van Dis Solutions: onze diensten, werkwijze en projecten in industriële automatisering en paneelbouw, overzichtelijk in één PDF.">
+<meta name="description" content="Blader online door de bedrijfsbrochure van Van Dis Solutions: diensten, werkwijze en projecten in industriële automatisering en paneelbouw. Of download de PDF.">
 <link rel="canonical" href="https://vandissolutions.com/brochure/">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/img/favicon-32.png" type="image/png" sizes="32x32">
@@ -55,45 +55,87 @@
   <div class="crumb"><a href="/">Home</a> / <span>Brochure</span></div>
   <div class="tag">DOWNLOAD // BEDRIJFSBROCHURE</div>
   <h1>Alles over Van Dis in één <span class="accent">PDF</span></h1>
-  <p class="sub">Onze diensten, werkwijze en projecten overzichtelijk op papier. Handig om te delen met collega's of beslissers.</p>
+  <p class="sub">Blader direct door onze bedrijfsbrochure: diensten, werkwijze en projecten. Geen gedoe met formulieren — lezen maar. Liever offline? Download de PDF.</p>
 </section>
 
 <section style="padding-top:0">
-  <div class="split reveal" style="align-items:start">
-    <div>
-      <form id="brochure-form">
-        <div class="form-grid">
-          <div><label for="naam">Naam *</label><input id="naam" type="text" required autocomplete="name"></div>
-          <div><label for="bedrijf">Bedrijf</label><input id="bedrijf" type="text" autocomplete="organization"></div>
-          <div class="full"><label for="email">E-mailadres *</label><input id="email" type="email" required autocomplete="email"></div>
-          <div class="full" style="display:flex;gap:10px;align-items:start">
-            <input type="checkbox" id="privacy" required style="width:auto;margin-top:4px">
-            <label for="privacy" style="margin:0;font-size:13.5px;line-height:1.5">Ik ga akkoord met de verwerking van mijn gegevens volgens de <a href="/privacyverklaring/" style="color:var(--red)">privacyverklaring</a>. *</label>
-          </div>
-          <div class="full"><button class="btn primary" type="submit">Download de brochure</button></div>
-        </div>
-      </form>
-      <div id="download-klaar" style="display:none;margin-top:24px" class="card">
-        <h3 style="margin-bottom:10px">Bedankt!</h3>
-        <p style="color:var(--steel);margin-bottom:16px">Je download start hieronder. Vragen naar aanleiding van de brochure? Bel of mail ons gerust.</p>
-        <a class="btn primary" href="/docs/vandis-brochure.pdf" download>Open de brochure (PDF)</a>
-      </div>
+  <style>
+    #book-stage{max-width:720px;margin:0 auto;perspective:2200px}
+    #book-frame{position:relative;border-radius:6px;background:var(--bg2);border:1px solid var(--line);padding:14px;cursor:pointer}
+    #book-page{display:block;width:100%;height:auto;border-radius:3px;transition:transform .28s ease,opacity .28s ease;transform-style:preserve-3d;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+    #book-page.uit-r{transform:rotateY(-72deg);opacity:0;transform-origin:left center}
+    #book-page.uit-l{transform:rotateY(72deg);opacity:0;transform-origin:right center}
+    #book-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px}
+    #book-controls button{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:46px;height:46px;border-radius:50%;font-size:18px;cursor:pointer;transition:all .2s;-webkit-appearance:none;appearance:none}
+    #book-controls button:hover:not(:disabled){border-color:var(--red);color:var(--red)}
+    #book-controls button:disabled{opacity:.3;cursor:default}
+    #book-teller{font-family:var(--mono);font-size:13.5px;color:var(--steel);min-width:64px;text-align:center}
+    #book-acties{display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+    .book-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#556069;margin-top:14px}
+  </style>
+  <div id="book-stage" class="reveal">
+    <div id="book-frame" aria-label="Bedrijfsbrochure Van Dis Solutions, bladerbaar">
+      <img id="book-page" src="/img/brochure/pagina-1.webp" width="900" height="1273" alt="Brochurepagina 1: cover — Uw partner in industriële automatisering en paneelbouw">
     </div>
-    <div>
-      <div class="imgbox" style="margin-bottom:22px;background:#fff"><img src="/img/bedrijfsbrochure-van-dis-mockup.webp" width="1350" height="1080" loading="lazy" alt="Voorbeeld van de bedrijfsbrochure van Van Dis Solutions" style="filter:none"></div>
-      <div class="term" style="margin-bottom:22px">
-        <span class="p">vandis@docs</span>:~$ brochure_info<br>
-        &gt; Diensten ............... <span class="g">6 SPECIALISMEN</span><br>
-        &gt; Werkwijze .............. <span class="g">5 STAPPEN</span><br>
-        &gt; Projecten .............. <span class="g">CASES &amp; FOTO'S</span><br>
-        &gt; Formaat ................ <span class="g">PDF</span>
-      </div>
-      <div class="card">
-        <h3 style="margin-bottom:12px">Liever direct antwoord?</h3>
-        <p style="line-height:2;color:var(--steel)">Een gesprek zegt meer dan een PDF.<br><a href="tel:+31636488381" style="color:#fff;text-decoration:none;font-weight:700">+31 6 36 48 83 81</a><br><a href="/contact/" style="color:var(--red)">Plan een gratis adviesgesprek →</a></p>
-      </div>
+    <div class="book-hint">▸ Klik op de pagina, veeg, of gebruik de pijltjes</div>
+    <div id="book-controls">
+      <button id="bk-vorige" aria-label="Vorige pagina">←</button>
+      <span id="book-teller">1 / 7</span>
+      <button id="bk-volgende" aria-label="Volgende pagina">→</button>
+    </div>
+    <div id="book-acties">
+      <a class="btn primary" href="/docs/vandis-brochure.pdf" download>Download de PDF</a>
+      <a class="btn ghost" href="/contact/">Vragen? Plan een adviesgesprek</a>
     </div>
   </div>
+  <script>
+  (function(){
+    var totaal=7, i=1, bezig=false;
+    var img=document.getElementById('book-page');
+    var teller=document.getElementById('book-teller');
+    var vorige=document.getElementById('bk-vorige');
+    var volgende=document.getElementById('bk-volgende');
+    // preload
+    for(var p=2;p<=totaal;p++){ new Image().src='/img/brochure/pagina-'+p+'.webp'; }
+    function toon(n, richting){
+      if(bezig||n<1||n>totaal)return;
+      bezig=true;
+      img.classList.add(richting>0?'uit-r':'uit-l');
+      setTimeout(function(){
+        i=n;
+        img.src='/img/brochure/pagina-'+i+'.webp';
+        img.alt='Brochurepagina '+i+' van Van Dis Solutions';
+        teller.textContent=i+' / '+totaal;
+        vorige.disabled=(i===1); volgende.disabled=(i===totaal);
+        img.classList.remove('uit-r','uit-l');
+        img.classList.add(richting>0?'uit-l':'uit-r');
+        requestAnimationFrame(function(){requestAnimationFrame(function(){
+          img.classList.remove('uit-r','uit-l');
+          setTimeout(function(){bezig=false;},280);
+        });});
+      },280);
+    }
+    vorige.disabled=true;
+    vorige.addEventListener('click',function(){toon(i-1,-1)});
+    volgende.addEventListener('click',function(){toon(i+1,1)});
+    document.getElementById('book-frame').addEventListener('click',function(e){
+      var r=this.getBoundingClientRect();
+      (e.clientX-r.left)<r.width/2?toon(i-1,-1):toon(i+1,1);
+    });
+    addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight')toon(i+1,1);
+      if(e.key==='ArrowLeft')toon(i-1,-1);
+    });
+    var sx=null;
+    img.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+    img.addEventListener('touchend',function(e){
+      if(sx===null)return;
+      var dx=e.changedTouches[0].clientX-sx;
+      if(Math.abs(dx)>40){dx<0?toon(i+1,1):toon(i-1,-1);}
+      sx=null;
+    },{passive:true});
+  })();
+  </script>
 </section>
 
 <footer>
