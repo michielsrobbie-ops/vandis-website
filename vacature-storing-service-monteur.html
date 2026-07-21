@@ -55,6 +55,7 @@
         <a href="/hardware-engineering/">Hardware engineering</a>
         <a href="/software-engineering/">Software engineering</a>
         <a href="/industriele-automatisering/">Industriële automatisering</a>
+        <a href="/pcb-ontwikkeling/">PCB-ontwikkeling</a>
       </div>
     </div>
     <a href="/sectoren/">Sectoren</a>
@@ -117,12 +118,15 @@
   </div>
   <div class="split reveal" style="align-items:start;margin-top:36px">
     <div>
-      <form onsubmit="event.preventDefault();alert('Demo: formulier nog niet gekoppeld.');">
+      <form action="https://formsubmit.co/info@vandissolutions.com" method="POST">
+        <input type="hidden" name="_subject" value="Sollicitatie storing/service monteur">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
         <div class="form-grid">
-          <div><label for="naam">Naam *</label><input id="naam" type="text" required autocomplete="name"></div>
-          <div><label for="tel">Telefoonnummer *</label><input id="tel" type="tel" required autocomplete="tel"></div>
-          <div class="full"><label for="email">E-mailadres (optioneel)</label><input id="email" type="email" autocomplete="email"></div>
-          <div class="full"><label for="motivatie">Vertel kort iets over jezelf (optioneel)</label><textarea id="motivatie" placeholder="Bijv. je ervaring, huidige functie of wanneer je kunt beginnen"></textarea></div>
+          <div><label for="naam">Naam *</label><input id="naam" name="Naam" type="text" required autocomplete="name"></div>
+          <div><label for="tel">Telefoonnummer *</label><input id="tel" name="Telefoonnummer" type="tel" required autocomplete="tel"></div>
+          <div class="full"><label for="email">E-mailadres (optioneel)</label><input id="email" name="E-mailadres" type="email" autocomplete="email"></div>
+          <div class="full"><label for="motivatie">Vertel kort iets over jezelf (optioneel)</label><textarea id="motivatie" name="Motivatie" placeholder="Bijv. je ervaring, huidige functie of wanneer je kunt beginnen"></textarea></div>
           <div class="full" style="display:flex;gap:10px;align-items:start">
             <input type="checkbox" id="privacy" required style="width:auto;margin-top:4px">
             <label for="privacy" style="margin:0;font-size:13.5px;line-height:1.5">Ik ga akkoord met de verwerking van mijn gegevens volgens de <a href="/privacyverklaring/" style="color:var(--red)">privacyverklaring</a>. *</label>
@@ -159,6 +163,7 @@
       <a href="/plc-automatisering/">PLC-automatisering</a>
       <a href="/hardware-engineering/">Hardware engineering</a>
       <a href="/software-engineering/">Software engineering</a>
+      <a href="/pcb-ontwikkeling/">PCB-ontwikkeling</a>
     </div>
     <div>
       <h4>Bedrijf</h4>
@@ -172,7 +177,7 @@
     </div>
     <div>
       <h4>Contact</h4>
-      <p>Warwickstraat 21<br>4651 SX Steenbergen<br>+31 6 36 48 83 81<br>info@vandissolutions.com<br>KvK: [invullen] · BTW: [invullen]</p>
+      <p>Warwickstraat 21<br>4651 SX Steenbergen<br>+31 6 36 48 83 81<br>info@vandissolutions.com<br>KvK: 75917149 · BTW: NL8604.40.692.B01</p>
     </div>
   </div>
   <div class="legal">

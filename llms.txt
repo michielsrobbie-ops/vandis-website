@@ -12,6 +12,7 @@ Contact: Warwickstraat 21, 4651 SX Steenbergen · +31 6 36 48 83 81 · info@vand
 - [Hardware engineering](https://vandissolutions.com/hardware-engineering/): schema's, dimensionering, componentkeuze
 - [Software engineering](https://vandissolutions.com/software-engineering/): HMI, SCADA, besturingssoftware
 - [Industriële automatisering](https://vandissolutions.com/industriele-automatisering/): complete trajecten van A tot Z
+- [PCB-ontwikkeling](https://vandissolutions.com/pcb-ontwikkeling/): printplaten ontwerpen en programmeren in eigen beheer
 
 ## Sectoren
 - [Projectpartners & machinebouwers](https://vandissolutions.com/industriele-automatisering-voor-projectpartners/)
