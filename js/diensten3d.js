@@ -350,7 +350,7 @@
   endGlow.position.copy(endP);
   scene.add(endGlow);
   const endLabel = labelSprite('EINDTEST // OK', true);
-  endLabel.position.set(endP.x, endP.y + 2.2, endP.z - 2);
+  endLabel.position.set(endP.x, endP.y + 0.4, endP.z - 3);
   scene.add(endLabel);
 
   // ---------- deeltjes ----------
