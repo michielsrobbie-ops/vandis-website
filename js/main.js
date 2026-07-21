@@ -11,9 +11,10 @@ const ham = document.getElementById('hamburger');
 if (ham) ham.addEventListener('click', () => document.querySelector('nav').classList.toggle('open'));
 
 // actieve navigatielink
-const here = location.pathname.split('/').pop() || 'index.html';
+const here = location.pathname.replace(/\/+$/, '') || '/';
 document.querySelectorAll('nav a[href]').forEach(a => {
-  if (a.getAttribute('href') === here && !a.classList.contains('cta')) a.classList.add('active');
+  const h = (a.getAttribute('href') || '').replace(/\/+$/, '') || '/';
+  if (h === here && !a.classList.contains('cta')) a.classList.add('active');
 });
 
 // tellers

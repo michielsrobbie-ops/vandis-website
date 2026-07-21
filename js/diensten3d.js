@@ -384,12 +384,12 @@
 
   // ---------- panel ----------
   const data = [
-    { n: '01', t: 'Besturingspanelen & -kasten', x: 'De reis begint bij het paneel: het kloppend hart van elke installatie. Op maat ontworpen, gebouwd en volledig getest in eigen huis.', l: 'besturingspanelen.html' },
-    { n: '02', t: 'Panelenbouw', x: 'In onze werkplaats in Steenbergen krijgt het ontwerp handen en voeten: nette, gedocumenteerde bedrading, in serie of enkelstuks.', l: 'panelenbouw.html' },
-    { n: '03', t: 'PLC-automatisering', x: 'De PLC is het brein. Wij programmeren en configureren besturingen van alle grote merken, tot en met de inbedrijfstelling.', l: 'plc-automatisering.html' },
-    { n: '04', t: 'Hardware engineering', x: 'Onder elke betrouwbare installatie ligt een doordacht schema. Voedingen, beveiligingen en bekabeling, exact gedimensioneerd.', l: 'hardware-engineering.html' },
-    { n: '05', t: 'Software engineering', x: 'HMI, SCADA en besturingssoftware maken het proces zichtbaar en bestuurbaar, voor operator én management.', l: 'software-engineering.html' },
-    { n: '06', t: 'Industriële automatisering', x: 'Alles komt samen: vlieg door de poort: één partner die het complete traject draagt, van schets tot productielijn.', l: 'industriele-automatisering.html' },
+    { n: '01', t: 'Besturingspanelen & -kasten', x: 'De reis begint bij het paneel: het kloppend hart van elke installatie. Op maat ontworpen, gebouwd en volledig getest in eigen huis.', l: '/besturingspanelen/' },
+    { n: '02', t: 'Panelenbouw', x: 'In onze werkplaats in Steenbergen krijgt het ontwerp handen en voeten: nette, gedocumenteerde bedrading, in serie of enkelstuks.', l: '/panelenbouw/' },
+    { n: '03', t: 'PLC-automatisering', x: 'De PLC is het brein. Wij programmeren en configureren besturingen van alle grote merken, tot en met de inbedrijfstelling.', l: '/plc-automatisering/' },
+    { n: '04', t: 'Hardware engineering', x: 'Onder elke betrouwbare installatie ligt een doordacht schema. Voedingen, beveiligingen en bekabeling, exact gedimensioneerd.', l: '/hardware-engineering/' },
+    { n: '05', t: 'Software engineering', x: 'HMI, SCADA en besturingssoftware maken het proces zichtbaar en bestuurbaar, voor operator én management.', l: '/software-engineering/' },
+    { n: '06', t: 'Industriële automatisering', x: 'Alles komt samen: vlieg door de poort: één partner die het complete traject draagt, van schets tot productielijn.', l: '/industriele-automatisering/' },
   ];
   const panel = document.getElementById('panel');
   const pN = document.getElementById('p-num'), pT = document.getElementById('p-title'),
@@ -410,7 +410,7 @@
         pN.textContent = '// EINDTEST — GESLAAGD';
         pT.textContent = 'Signaal afgeleverd';
         pX.textContent = 'Van eerste schets tot werkende installatie: dit is wat één partner voor het hele traject betekent.';
-        pL.href = 'contact.html'; pL.textContent = 'Start uw traject →'; pL.style.display = 'inline-block';
+        pL.href = '/contact/'; pL.textContent = 'Start uw traject →'; pL.style.display = 'inline-block';
         pC.textContent = '06/06';
       } else {
         const s = data[i];
