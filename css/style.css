@@ -251,4 +251,3 @@ img{height:auto}
 
 /* canvas mag nooit breder dan zijn kolom */
 canvas{max-width:100%}
-html{overflow-x:hidden}
