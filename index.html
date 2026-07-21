@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Industriële automatisering & paneelbouw | Van Dis Solutions</title>
+<meta name="description" content="Van Dis Solutions ontwerpt, bouwt en programmeert besturingspanelen en industriële automatisering. Volledig in eigen huis, van engineering tot inbedrijfstelling.">
+<link rel="canonical" href="https://vandissolutions.com/">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:title" content="Industriële automatisering & paneelbouw | Van Dis Solutions">
+<meta property="og:description" content="Van Dis Solutions ontwerpt, bouwt en programmeert besturingspanelen en industriële automatisering. Volledig in eigen huis, van engineering tot inbedrijfstelling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vandissolutions.com/">
+<meta property="og:image" content="https://vandissolutions.com/img/paneelbouw-besturingskast-werkplaats.webp">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Industriële automatisering & paneelbouw | Van Dis Solutions">
+<meta name="twitter:description" content="Van Dis Solutions ontwerpt, bouwt en programmeert besturingspanelen en industriële automatisering. Volledig in eigen huis, van engineering tot inbedrijfstelling.">
+<meta name="twitter:image" content="https://vandissolutions.com/img/paneelbouw-besturingskast-werkplaats.webp">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Van Dis Solutions",
+"url":"https://vandissolutions.com/","logo":"https://vandissolutions.com/img/logo.svg",
+"address":{"@type":"PostalAddress","streetAddress":"Warwickstraat 21","postalCode":"4651 SX","addressLocality":"Steenbergen","addressCountry":"NL"},
+"telephone":"+31636488381","email":"info@vandissolutions.com"}
+</script>
+<style>
+  #boot{position:fixed;inset:0;background:var(--bg);z-index:99;display:flex;align-items:center;justify-content:center;transition:opacity .5s}
+  #boot.done{opacity:0;pointer-events:none}
+  #boot pre{font-family:var(--mono);font-size:13px;color:var(--steel);line-height:1.9}
+  #boot .ok{color:#3fbf5a}
+  #boot .red{color:var(--red)}
+  #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:140px}
+  #typeline{font-family:var(--mono);font-size:clamp(15px,2vw,19px);color:var(--steel);margin-top:26px;min-height:1.6em}
+  #typeline .cursor{display:inline-block;width:9px;height:1.15em;background:var(--red);vertical-align:text-bottom;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .hero-cta{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+  .hero-status{margin-top:70px;display:flex;gap:34px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--steel)}
+  #kast-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center;margin-top:50px}
+  #kast3d{width:100%;min-height:360px;border-radius:6px;position:relative;
+    background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(222,49,21,.07),transparent 70%),radial-gradient(ellipse 100% 100% at 50% 50%,#0d1319,#0a0e12)}
+  #kast3d canvas{display:block;border-radius:6px;touch-action:pan-y}
+  #kast .comp{cursor:pointer;transition:filter .25s}
+  #kast .comp:hover,#kast .comp.active{filter:drop-shadow(0 0 9px var(--red-glow))}
+  #kast .comp.active .comp-body{stroke:var(--red);stroke-width:2}
+  #kast .hotspot{animation:hs 2s ease-in-out infinite}
+  @keyframes hs{0%,100%{opacity:.9}50%{opacity:.3}}
+  #kast .wire{stroke-dasharray:6 5;animation:wireflow 1.2s linear infinite}
+  @keyframes wireflow{to{stroke-dashoffset:-11}}
+  #kast-info{background:var(--bg2);border:1px solid var(--line);border-left:3px solid var(--red);border-radius:4px;padding:30px;min-height:230px}
+  #kast-info h3{font-size:21px;margin-bottom:10px}
+  #kast-info .code{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.1em;margin-bottom:14px}
+  #kast-info p{color:var(--steel);line-height:1.7;font-size:15px}
+  #kast-info .hint{margin-top:16px;font-family:var(--mono);font-size:12px;color:#556069}
+  #kast-info .cardlink{color:var(--red);text-decoration:none;font-weight:600;font-size:14px;display:inline-block;margin-top:12px}
+  @media(max-width:900px){#kast-wrap{grid-template-columns:1fr}}
+</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wat doet Van Dis Solutions?", "acceptedAnswer": {"@type": "Answer", "text": "Van Dis Solutions ontwerpt, bouwt en programmeert besturingspanelen en industriële automatisering. Engineering, paneelbouw, PLC-software en inbedrijfstelling gebeuren volledig in eigen huis, vanuit onze werkplaats in Steenbergen."}}, {"@type": "Question", "name": "Waar is Van Dis Solutions gevestigd?", "acceptedAnswer": {"@type": "Answer", "text": "Onze werkplaats staat aan de Warwickstraat 21 in Steenbergen (West-Brabant). We werken voor opdrachtgevers in heel Nederland."}}, {"@type": "Question", "name": "Hoe snel krijg ik een offerte?", "acceptedAnswer": {"@type": "Answer", "text": "U krijgt binnen 24 uur reactie op uw aanvraag en binnen 5 werkdagen een offerte op maat. Een adviesgesprek is altijd gratis en vrijblijvend."}}, {"@type": "Question", "name": "Werken jullie voor grote en kleine bedrijven?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Van startende bedrijven met één machine tot partners met serieproductie, zoals machinebouwers en energieopslagspecialisten. De besturing groeit mee met uw bedrijf."}}]}
+</script>
+</head>
+<body>
+
+<div id="boot"><pre id="bootlog"></pre></div>
+<div class="grid-bg"></div>
+<div id="signal"><div class="track"></div><div class="pulse"></div></div>
+
+<header>
+  <a class="logo" href="index.html"><img src="img/logo.svg" alt="Van Dis Solutions logo"></a>
+  <button id="hamburger" aria-label="Menu">☰</button>
+  <nav>
+    <a href="index.html">Home</a>
+    <div class="nav-dd">
+      <a href="diensten.html">Diensten</a>
+      <div class="dd">
+        <a href="besturingspanelen.html">Besturingspanelen &amp; -kasten</a>
+        <a href="panelenbouw.html">Panelenbouw</a>
+        <a href="plc-automatisering.html">PLC-automatisering</a>
+        <a href="hardware-engineering.html">Hardware engineering</a>
+        <a href="software-engineering.html">Software engineering</a>
+        <a href="industriele-automatisering.html">Industriële automatisering</a>
+      </div>
+    </div>
+    <a href="sectoren.html">Sectoren</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="blog.html">Blog</a>
+    <a href="vacatures.html">Vacatures</a>
+    <a class="cta" href="contact.html">Neem contact op</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <svg class="hero-circuit" viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 80 H180 V160 H340 V60 H600" stroke="#DE3115" stroke-width="1.5" opacity=".55"/>
+    <path d="M40 500 V320 H220 V240 H430 V340 H600" stroke="#3a4653" stroke-width="1.5"/>
+    <path d="M0 200 H120 V300 H300 V420 H520 V500" stroke="#3a4653" stroke-width="1.5"/>
+    <path d="M600 180 H420 V260 H560 V400 H600" stroke="#DE3115" stroke-width="1" opacity=".35"/>
+    <circle cx="180" cy="80" r="4" fill="#DE3115"/>
+    <circle cx="340" cy="160" r="4" fill="#3a4653"/>
+    <circle cx="220" cy="320" r="4" fill="#3a4653"/>
+    <circle cx="430" cy="240" r="4" fill="#DE3115"/>
+    <circle r="3" fill="#DE3115"><animateMotion dur="6s" repeatCount="indefinite" path="M0 80 H180 V160 H340 V60 H600"/></circle>
+    <circle r="3" fill="#e8a13c"><animateMotion dur="8s" repeatCount="indefinite" path="M40 500 V320 H220 V240 H430 V340 H600"/></circle>
+  </svg>
+  <div class="tag">INDUSTRIËLE AUTOMATISERING · PANEELBOUW · ENGINEERING</div>
+  <h1>Wij besturen de machines<br>die <span class="accent">Nederland</span> laten draaien.</h1>
+  <div id="typeline"><span id="typed"></span><span class="cursor"></span></div>
+  <div class="hero-cta">
+    <a class="btn primary" href="contact.html">Plan een adviesgesprek</a>
+    <a class="btn ghost" href="#kast-sec">Bekijk onze techniek ↓</a>
+  </div>
+  <div class="hero-status">
+    <span><span class="led"></span>SYSTEEM OPERATIONEEL</span>
+    <span><span class="led red"></span>PANEELBOUW ACTIEF</span>
+    <span><span class="led amber"></span>ENGINEERING IN UITVOERING</span>
+  </div>
+</section>
+
+<!-- INTERACTIEVE KAST -->
+<section id="kast-sec">
+  <div class="reveal">
+    <div class="sec-tag">// ONZE TECHNIEK</div>
+    <h2>Kijk in onze besturingskast</h2>
+    <p class="sub">Elke component telt. Klik op de onderdelen en ontdek wat wij er voor u mee bouwen.</p>
+  </div>
+  <div id="kast-wrap" class="reveal">
+    <div id="kast3d" aria-label="Interactieve 3D-besturingskast"></div>
+    <div id="kast-info">
+      <div class="code swap" id="ki-code">// SELECTEER COMPONENT</div>
+      <h3 class="swap" id="ki-title">Ontdek de kast</h3>
+      <p class="swap" id="ki-text">Klik op een rood punt in de besturingskast en zie welke expertise Van Dis Solutions daarachter levert, van PLC-programmering tot complete paneelbouw.</p>
+      <a id="ki-link" class="cardlink swap" href="#" style="display:none">Lees meer →</a>
+      <div class="hint">▸ Sleep om te draaien · klik op een component</div>
+      <button id="explode-btn" class="btn ghost" style="margin-top:16px;padding:10px 18px;font-size:13px" onclick="return vdsKastExplode()">▸ Exploded view</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="reveal">
+    <div class="sec-tag">// BEWEZEN RESULTAAT</div>
+    <h2>Specialist in maatwerk</h2>
+  </div>
+  <div class="grid3 reveal">
+    <div class="stat"><div class="num"><span data-count="250">0</span><span>+</span></div><div class="lbl">Panelen gebouwd &amp; geleverd</div></div>
+    <div class="stat"><div class="num"><span data-count="15">0</span><span>+</span></div><div class="lbl">Jaar ervaring in elektrotechniek</div></div>
+    <div class="stat"><div class="num"><span data-count="98">0</span><span>%</span></div><div class="lbl">Projecten binnen deadline</div></div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section id="diensten">
+  <div class="reveal">
+    <div class="sec-tag">// WAT WIJ DOEN</div>
+    <h2>Totaaloplossingen in automatisering</h2>
+    <p class="sub">Van engineering tot oplevering: één partner voor het volledige traject. <a href="diensten.html" style="color:var(--red)">Volg het signaal door ons circuit →</a></p>
+  </div>
+  <div class="grid3 reveal">
+    <a class="cardwrap" href="besturingspanelen.html"><div class="card"><div class="cled"></div><div class="cnum">01</div><h3>Besturingspanelen &amp; -kasten</h3><p>Op maat ontworpen en gebouwde besturingspanelen en -kasten, volledig getest voor uitlevering.</p><span class="cardlink">Lees meer →</span></div></a>
+    <a class="cardwrap" href="panelenbouw.html"><div class="card"><div class="cled"></div><div class="cnum">02</div><h3>Panelenbouw</h3><p>Serie- en enkelstuks paneelbouw in eigen werkplaats, conform de geldende normen.</p><span class="cardlink">Lees meer →</span></div></a>
+    <a class="cardwrap" href="plc-automatisering.html"><div class="card"><div class="cled"></div><div class="cnum">03</div><h3>PLC-automatisering</h3><p>Programmering en inbedrijfstelling van PLC-besturingen voor elke industriële toepassing.</p><span class="cardlink">Lees meer →</span></div></a>
+    <a class="cardwrap" href="hardware-engineering.html"><div class="card"><div class="cled"></div><div class="cnum">04</div><h3>Hardware engineering</h3><p>Elektrotechnisch ontwerp, schema's en dimensionering door ervaren engineers.</p><span class="cardlink">Lees meer →</span></div></a>
+    <a class="cardwrap" href="software-engineering.html"><div class="card"><div class="cled"></div><div class="cnum">05</div><h3>Software engineering</h3><p>Besturingssoftware, HMI/SCADA en koppelingen die uw proces inzichtelijk maken.</p><span class="cardlink">Lees meer →</span></div></a>
+    <a class="cardwrap" href="industriele-automatisering.html"><div class="card"><div class="cled"></div><div class="cnum">06</div><h3>Industriële automatisering</h3><p>Complete automatiseringstrajecten voor projectpartners, installateurs en agro.</p><span class="cardlink">Lees meer →</span></div></a>
+  </div>
+</section>
+
+<!-- WERKPLAATS -->
+<section id="werk">
+  <div class="reveal">
+    <div class="sec-tag">// UIT DE WERKPLAATS</div>
+    <h2>Vakwerk, geen lopende band</h2>
+  </div>
+  <div class="grid2 reveal">
+    <div class="imgbox"><img src="img/paneelbouw-besturingskast-werkplaats.webp" width="1600" height="1068" loading="lazy" alt="Monteur bedraadt een besturingskast in de werkplaats van Van Dis Solutions"><div class="cap"><b>▸</b> BESTURINGSKAST — ASSEMBLAGE &amp; BEDRADING</div></div>
+    <div class="imgbox"><img src="img/software-test-opstelling.webp" width="1600" height="1067" loading="lazy" alt="Engineer test besturingssoftware met laptop op een testopstelling"><div class="cap"><b>▸</b> SOFTWARE — TEST &amp; INBEDRIJFSTELLING</div></div>
+  </div>
+</section>
+
+<!-- BROCHURE -->
+<section id="brochure-cta" style="padding-top:0">
+  <div class="cta-band reveal">
+    <div>
+      <h2>Liever alles op papier?</h2>
+      <p>Download de bedrijfsbrochure: diensten, werkwijze en projecten in één PDF.</p>
+    </div>
+    <a class="btn ghost" href="brochure.html">Download de brochure</a>
+  </div>
+</section>
+
+<!-- BLOG TEASER -->
+<section id="blog-teaser">
+  <div class="reveal">
+    <div class="sec-tag">// UIT DE WERKPLAATS</div>
+    <h2>Laatste verhalen</h2>
+  </div>
+  <div class="grid3 reveal">
+    <a class="cardwrap" href="partnerschap-big-ass-battery.html"><div class="card"><div class="cled"></div><div class="cnum">PARTNERSCHAP</div><h3>Duurzaam partnerschap met Big Ass Battery</h3><p>Van PLC-boxen tot contactorboxen voor mobiele energieopslag.</p><span class="cardlink">Lees artikel →</span></div></a>
+    <a class="cardwrap" href="samenwerking-inpieq.html"><div class="card"><div class="cled"></div><div class="cnum">SAMENWERKING</div><h3>Schakelkasten voor de machines van Inpieq</h3><p>Hoe een toevallige ontmoeting een vaste samenwerking werd.</p><span class="cardlink">Lees artikel →</span></div></a>
+    <a class="cardwrap" href="paneelbouwster-annemieke.html"><div class="card"><div class="cled"></div><div class="cnum">TEAM</div><h3>Maak kennis met paneelbouwster Annemieke</h3><p>Van test operator naar paneelbouw: een switch die uitpakte.</p><span class="cardlink">Lees artikel →</span></div></a>
+  </div>
+  <p style="margin-top:26px"><a href="blog.html" class="btn ghost">Alle verhalen →</a></p>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact-cta">
+  <div class="cta-band reveal">
+    <div>
+      <h2>Start uw project</h2>
+      <p>Vrijblijvend adviesgesprek · Offerte binnen 5 werkdagen · Reactie binnen 24 uur</p>
+    </div>
+    <a class="btn primary" href="contact.html">Neem contact op</a>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div class="flogo">
+      <img src="img/logo.svg" alt="Van Dis Solutions logo">
+      <p>Expert in industriële automatisering, paneelbouw en elektrotechnische engineering.</p>
+    </div>
+    <div>
+      <h4>Diensten</h4>
+      <a href="besturingspanelen.html">Besturingspanelen</a>
+      <a href="panelenbouw.html">Panelenbouw</a>
+      <a href="plc-automatisering.html">PLC-automatisering</a>
+      <a href="hardware-engineering.html">Hardware engineering</a>
+      <a href="software-engineering.html">Software engineering</a>
+    </div>
+    <div>
+      <h4>Bedrijf</h4>
+      <a href="industriele-automatisering.html">Industriële automatisering</a>
+      <a href="sectoren.html">Sectoren</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="blog.html">Blog</a>
+      <a href="vacatures.html">Vacatures</a>
+      <a href="brochure.html">Brochure</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>Warwickstraat 21<br>4651 SX Steenbergen<br>+31 6 36 48 83 81<br>info@vandissolutions.com<br>KvK: [invullen] · BTW: [invullen]</p>
+    </div>
+  </div>
+  <div class="legal">
+    <span>© 2026 Van Dis Solutions. Alle rechten voorbehouden.</span>
+    <span><a href="privacyverklaring.html">Privacyverklaring</a><a href="cookiebeleid.html">Cookiebeleid</a></span>
+  </div>
+</footer>
+
+<div id="cookiebar">
+  <p>Wij gebruiken cookies om onze website te verbeteren. Functionele cookies plaatsen we altijd; analytische en marketingcookies alleen met uw toestemming. Lees ons <a href="cookiebeleid.html">cookiebeleid</a>.</p>
+  <div class="cbtns">
+    <button class="btn ghost" onclick="vdsConsent('functional')">Alleen functioneel</button>
+    <button class="btn primary" onclick="vdsConsent('all')">Accepteren</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// boot
+const bootLines=[
+ ["VAN DIS SOLUTIONS — SYSTEEM INITIALISATIE","red"],
+ ["Laden besturingsmodules .......... [OK]","ok"],
+ ["Verbinding werkplaats ............ [OK]","ok"],
+ ["Engineering online ............... [OK]","ok"]
+];
+const log=document.getElementById('bootlog');let bi=0;
+if(sessionStorage.getItem('vds-boot')){document.getElementById('boot').classList.add('done');}
+else{sessionStorage.setItem('vds-boot','1');
+(function bootStep(){
+  if(bi<bootLines.length){const [t,c]=bootLines[bi++];
+    log.innerHTML+=`<span class="${c==='red'?'red':''}">${t.replace('[OK]','<span class=ok>[OK]</span>')}</span>\n`;
+    setTimeout(bootStep,220);
+  } else setTimeout(()=>document.getElementById('boot').classList.add('done'),350);
+})();}
+
+// typewriter
+const phrases=["Besturingspanelen volledig op maat.","PLC-automatisering die nooit slaapt.","Van schema tot inbedrijfstelling.","Eén partner. Het hele traject."];
+const typed=document.getElementById('typed');let pi=0,ci=0,del=false;
+(function type(){const cur=phrases[pi];typed.textContent=cur.slice(0,ci);
+  if(!del&&ci<cur.length){ci++;setTimeout(type,45);}
+  else if(!del){del=true;setTimeout(type,2100);}
+  else if(ci>0){ci--;setTimeout(type,18);}
+  else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,300);}})();
+
+// kast
+const compInfo={
+ plc:{c:"COMP: PLC-CONTROLLER",t:"PLC-automatisering",x:"Het brein van elke installatie. Wij programmeren en configureren PLC's van alle grote merken, van eenvoudige besturingen tot complexe processturing.",l:"plc-automatisering.html"},
+ voeding:{c:"COMP: VOEDINGSMODULE",t:"Hardware engineering",x:"Betrouwbare energievoorziening begint met het juiste ontwerp. Onze engineers dimensioneren voedingen, beveiligingen en bekabeling exact op uw toepassing.",l:"hardware-engineering.html"},
+ relais:{c:"COMP: RELAISGROEP",t:"Besturingspanelen & -kasten",x:"Schakelen, beveiligen, signaleren. Elke relaisgroep wordt door ons ontworpen, opgebouwd en getest volgens de geldende normen.",l:"besturingspanelen.html"},
+ klemmen:{c:"COMP: KLEMMENSTROOK",t:"Panelenbouw",x:"Nette, gedocumenteerde bedrading is ons visitekaartje. In onze werkplaats bouwen wij panelen in serie én enkelstuks, altijd volledig getest.",l:"panelenbouw.html"},
+ hmi:{c:"COMP: HMI-PANEEL",t:"Software engineering",x:"Bediening en inzicht voor de operator. Wij ontwikkelen HMI- en SCADA-oplossingen die uw proces visueel en bestuurbaar maken.",l:"software-engineering.html"},
+ motor:{c:"COMP: MOTORBEVEILIGING",t:"Industriële automatisering",x:"Van motorsturing tot complete productielijn: wij leveren totaaloplossingen voor projectpartners, installatiebedrijven en de agrarische sector.",l:"industriele-automatisering.html"}
+};
+const kiC=document.getElementById('ki-code'),kiT=document.getElementById('ki-title'),kiX=document.getElementById('ki-text'),kiL=document.getElementById('ki-link');
+window.vdsKastActivate=function(key){
+  const i=compInfo[key];if(!i)return;
+  const box=document.getElementById('kast-info');
+  box.classList.add('fading');
+  setTimeout(()=>{
+    kiC.textContent="// "+i.c;kiT.textContent=i.t;kiX.textContent=i.x;
+    kiL.href=i.l;kiL.textContent='Meer over '+i.t+' →';kiL.style.display='inline-block';
+    box.classList.remove('fading');
+  },140);
+};
+window.vdsKastMode=function(exploded){
+  const box=document.getElementById('kast-info');
+  box.classList.add('fading');
+  setTimeout(()=>{
+    if(exploded){
+      kiC.textContent="// EXPLODED VIEW — ZES DIENSTEN";
+      kiT.textContent="Elk onderdeel is een specialisme";
+      kiX.textContent="De kast valt uiteen in zes componenten en elk component staat voor een dienst: van PLC-programmering tot paneelbouw. Klik op een onderdeel voor de details.";
+      kiL.style.display='none';
+    }else{
+      kiC.textContent="// SYSTEEM COMPLEET";
+      kiT.textContent="Eén werkend geheel";
+      kiX.textContent="Zes specialismen, samengebouwd tot één betrouwbare besturing. Precies zo werkt een traject bij Van Dis: alles onder één dak, alles op elkaar afgestemd.";
+      kiL.href='diensten.html';kiL.textContent='Bekijk alle diensten →';kiL.style.display='inline-block';
+    }
+    box.classList.remove('fading');
+  },140);
+};
+</script>
+<script src="js/vendor/three.min.js"></script>
+<script src="js/kast3d.js"></script>
+</body>
+</html>

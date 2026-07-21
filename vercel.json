@@ -1,0 +1,88 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/besturingskasten",
+      "destination": "/besturingspanelen/",
+      "permanent": true
+    },
+    {
+      "source": "/besturingskast-op-maat",
+      "destination": "/besturingspanelen/",
+      "permanent": true
+    },
+    {
+      "source": "/plc-besturingstechniek",
+      "destination": "/plc-automatisering/",
+      "permanent": true
+    },
+    {
+      "source": "/maak-kennis-met-onze-paneelbouwster-annemieke",
+      "destination": "/paneelbouwster-annemieke/",
+      "permanent": true
+    },
+    {
+      "source": "/nieuwe-samenwerking-tussen-van-dis-solutions-en-inpieq",
+      "destination": "/samenwerking-inpieq/",
+      "permanent": true
+    },
+    {
+      "source": "/ontmoet-rene-software-engineer-bij-van-dis-solutions",
+      "destination": "/rene-software-engineer/",
+      "permanent": true
+    },
+    {
+      "source": "/duurzame-partnerschap-van-dis-solutions-en-big-ass-battery",
+      "destination": "/partnerschap-big-ass-battery/",
+      "permanent": true
+    },
+    {
+      "source": "/bram-van-dis-het-gezicht-achter-van-dis-solutions",
+      "destination": "/bram-van-dis/",
+      "permanent": true
+    },
+    {
+      "source": "/brochure-downloaden",
+      "destination": "/brochure/",
+      "permanent": true
+    },
+    {
+      "source": "/recycling",
+      "destination": "/over-ons/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        }
+      ]
+    },
+    {
+      "source": "/img/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

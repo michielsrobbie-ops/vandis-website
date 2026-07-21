@@ -1,0 +1,16 @@
+# Nette URLs: /pagina/ -> pagina.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([a-z0-9-]+)/?$ $1.html [L]
+
+# 301-redirects vanaf oude WordPress-URLs
+Redirect 301 /besturingskasten/ /besturingspanelen/
+Redirect 301 /besturingskast-op-maat/ /besturingspanelen/
+Redirect 301 /plc-besturingstechniek/ /plc-automatisering/
+Redirect 301 /maak-kennis-met-onze-paneelbouwster-annemieke/ /paneelbouwster-annemieke/
+Redirect 301 /nieuwe-samenwerking-tussen-van-dis-solutions-en-inpieq/ /samenwerking-inpieq/
+Redirect 301 /ontmoet-rene-software-engineer-bij-van-dis-solutions/ /rene-software-engineer/
+Redirect 301 /duurzame-partnerschap-van-dis-solutions-en-big-ass-battery/ /partnerschap-big-ass-battery/
+Redirect 301 /bram-van-dis-het-gezicht-achter-van-dis-solutions/ /bram-van-dis/
+Redirect 301 /brochure-downloaden/ /brochure/
+Redirect 301 /recycling/ /over-ons/

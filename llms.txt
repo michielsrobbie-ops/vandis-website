@@ -1,0 +1,25 @@
+# Van Dis Solutions
+
+> Van Dis Solutions ontwerpt, bouwt en programmeert besturingspanelen en industriële automatisering. Engineering, paneelbouw, PLC-software en inbedrijfstelling volledig in eigen huis, vanuit Steenbergen (West-Brabant, Nederland). Klanten: machinebouwers, installatiebedrijven, agrarische sector en energieopslag (o.a. Inpieq, Big Ass Battery).
+
+Contact: Warwickstraat 21, 4651 SX Steenbergen · +31 6 36 48 83 81 · info@vandissolutions.com
+
+## Diensten
+- [Diensten-overzicht](https://vandissolutions.com/diensten/): zes specialismen, één traject
+- [Besturingspanelen & -kasten](https://vandissolutions.com/besturingspanelen/): op maat ontworpen, gebouwd en getest
+- [Panelenbouw](https://vandissolutions.com/panelenbouw/): serie en enkelstuks, eigen werkplaats
+- [PLC-automatisering](https://vandissolutions.com/plc-automatisering/): programmering en inbedrijfstelling, alle grote merken
+- [Hardware engineering](https://vandissolutions.com/hardware-engineering/): schema's, dimensionering, componentkeuze
+- [Software engineering](https://vandissolutions.com/software-engineering/): HMI, SCADA, besturingssoftware
+- [Industriële automatisering](https://vandissolutions.com/industriele-automatisering/): complete trajecten van A tot Z
+
+## Sectoren
+- [Projectpartners & machinebouwers](https://vandissolutions.com/industriele-automatisering-voor-projectpartners/)
+- [Installatiebedrijven](https://vandissolutions.com/industriele-automatisering-voor-installatiebedrijven/)
+- [Agrarische sector](https://vandissolutions.com/industriele-automatisering-voor-de-agrarische-sector/)
+
+## Bedrijf
+- [Over ons](https://vandissolutions.com/over-ons/): van eenmanszaak naar specialistenteam
+- [Blog](https://vandissolutions.com/blog/): samenwerkingen en teamverhalen
+- [Vacatures](https://vandissolutions.com/vacatures/): o.a. storing/service monteur allround
+- [Contact](https://vandissolutions.com/contact/): gratis adviesgesprek, reactie binnen 24 uur
