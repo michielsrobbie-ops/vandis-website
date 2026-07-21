@@ -337,8 +337,9 @@
 
   // ---------- resize ----------
   function resize() {
-    const w = container.clientWidth, h = Math.min(Math.max(340, w * 0.85), innerHeight * 0.62);
+    const w = Math.min(container.clientWidth, document.documentElement.clientWidth - 32), h = Math.min(Math.max(340, w * 0.85), innerHeight * 0.62);
     renderer.setSize(w, h);
+    renderer.domElement.style.maxWidth = '100%';
     camera.aspect = w / h;
     // camera exact zo ver terug dat de hele kast (incl. labels) in beeld past
     const halfW = 3.4, halfH = 2.6, tanV = Math.tan(camera.fov * Math.PI / 360);

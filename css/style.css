@@ -72,8 +72,8 @@ h3{font-size:19px}
 @keyframes led{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* cards */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:50px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:50px}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:30px 26px;position:relative;transition:transform .25s,border-color .25s;overflow:hidden}
 .card:hover{transform:translateY(-5px);border-color:var(--red)}
 .card:hover .cled{background:var(--red);box-shadow:0 0 9px var(--red)}
@@ -102,7 +102,7 @@ a.cardwrap{text-decoration:none;color:inherit;display:block}
 .page-hero .sub{margin-top:20px}
 
 /* contentblokken */
-.split{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:center}
 .split .txt p{color:var(--steel);line-height:1.75;font-size:15.5px;margin-bottom:16px}
 .split .txt h2{margin-bottom:18px}
 .imgbox{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line)}
@@ -111,7 +111,7 @@ a.cardwrap{text-decoration:none;color:inherit;display:block}
 .imgbox .cap b{color:var(--red)}
 
 /* proces stappen */
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:50px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:50px}
 .step{background:var(--bg2);border:1px solid var(--line);border-radius:4px;padding:24px 18px;text-align:center;position:relative}
 .step .snum{font-family:var(--mono);color:var(--red);font-size:13px;letter-spacing:.1em;margin-bottom:10px}
 .step h4{font-size:15px;margin-bottom:6px}
@@ -248,3 +248,7 @@ img{height:auto}
 
 /* dropdown open-state voor touch */
 .nav-dd.open .dd{display:block}
+
+/* canvas mag nooit breder dan zijn kolom */
+canvas{max-width:100%}
+html{overflow-x:hidden}
