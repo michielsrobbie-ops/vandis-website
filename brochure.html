@@ -62,7 +62,7 @@
 
 <section style="padding-top:0">
   <style>
-    #book-stage{max-width:860px;margin:0 auto}
+    #book-stage{max-width:1050px;margin:0 auto}
     #book-frame{position:relative;border-radius:6px;background:var(--bg2);border:1px solid var(--line);padding:12px;cursor:zoom-in;text-align:center}
     #book-page{display:block;width:auto;max-width:100%;height:auto;max-height:calc(100vh - 250px);margin:0 auto;border-radius:3px;transition:transform .26s ease,opacity .26s ease;box-shadow:0 18px 50px rgba(0,0,0,.55)}
     #book-page.uit-r{transform:rotateY(-60deg) scale(.96);opacity:0;transform-origin:left center}
@@ -110,6 +110,7 @@
   <script>
   (function(){
     var totaal=10, i=1, bezig=false, multi=false;
+    var basis = matchMedia('(min-width: 900px)').matches ? '/img/brochure/breed-v1-' : '/img/brochure/blad-v6-';
     var img=document.getElementById('book-page');
     var teller=document.getElementById('book-teller');
     var vorige=document.getElementById('bk-vorige');
@@ -117,12 +118,12 @@
     var lees=document.getElementById('lees');
     var leesImg=document.getElementById('lees-img');
     var leesTeller=document.getElementById('lees-teller');
-    for(var p=2;p<=totaal;p++){ new Image().src='/img/brochure/blad-v6-'+p+'.webp'; }
+    for(var p=2;p<=totaal;p++){ new Image().src=basis+p+'.webp'; }
     function sync(){
       teller.textContent=i+' / '+totaal;
       leesTeller.textContent=i+' / '+totaal;
       vorige.disabled=(i===1); volgende.disabled=(i===totaal);
-      leesImg.src='/img/brochure/blad-v6-'+i+'.webp';
+      leesImg.src=basis+i+'.webp';
     }
     function toon(n, richting){
       if(bezig||n<1||n>totaal)return;
@@ -130,7 +131,7 @@
       img.classList.add(richting>0?'uit-r':'uit-l');
       setTimeout(function(){
         i=n;
-        img.src='/img/brochure/blad-v6-'+i+'.webp';
+        img.src=basis+i+'.webp';
         img.alt='Brochurepagina '+i+' van Van Dis Solutions';
         sync();
         img.classList.remove('uit-r','uit-l');
@@ -141,6 +142,7 @@
         });});
       },260);
     }
+    img.src=basis+'1.webp';
     sync();
     vorige.addEventListener('click',function(){toon(i-1,-1)});
     volgende.addEventListener('click',function(){toon(i+1,1)});
