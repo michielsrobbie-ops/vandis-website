@@ -62,37 +62,73 @@
 
 <section style="padding-top:0">
   <style>
-    #book-stage{max-width:1050px;margin:0 auto}
-    #book-frame{position:relative;border-radius:6px;background:var(--bg2);border:1px solid var(--line);padding:12px;cursor:zoom-in;text-align:center}
-    #book-page{display:block;width:auto;max-width:100%;height:auto;max-height:calc(100vh - 250px);margin:0 auto;border-radius:3px;transition:transform .26s ease,opacity .26s ease;box-shadow:0 18px 50px rgba(0,0,0,.55)}
-    #book-page.uit-r{transform:rotateY(-60deg) scale(.96);opacity:0;transform-origin:left center}
-    #book-page.uit-l{transform:rotateY(60deg) scale(.96);opacity:0;transform-origin:right center}
-    #book-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:22px}
+    #podium{max-width:1080px;margin:0 auto;position:relative}
+    #podium::before{content:"";position:absolute;inset:-40px -60px;z-index:0;pointer-events:none;
+      background:radial-gradient(ellipse 60% 55% at 50% 42%,rgba(222,49,21,.13),transparent 70%)}
+    #stage3d{position:relative;z-index:1;perspective:2000px;padding:10px 0 6px}
+    #boek{position:relative;margin:0 auto;width:fit-content;transform-style:preserve-3d;
+      transform:rotateX(4deg);transition:transform .3s ease;
+      -webkit-box-reflect:below 14px linear-gradient(transparent 72%,rgba(255,255,255,.07))}
+    #boek-wrap{position:relative;transform-style:preserve-3d}
+    #book-page{display:block;width:auto;max-width:min(92vw,1000px);height:auto;max-height:calc(100vh - 330px);min-height:300px;
+      border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 40px rgba(222,49,21,.12)}
+    /* omslaand blad */
+    #leaf{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,.1,.3,1);
+      pointer-events:none;display:none;z-index:3}
+    #leaf.aan{display:block}
+    #leaf img{position:absolute;inset:0;width:100%;height:100%;border-radius:4px;
+      -webkit-backface-visibility:hidden;backface-visibility:hidden}
+    #leaf .achter{transform:rotateY(180deg)}
+    /* HUD-hoeken */
+    .hud{position:absolute;width:26px;height:26px;border:2px solid var(--red);z-index:2;pointer-events:none}
+    .hud.lb{left:-14px;top:-14px;border-right:none;border-bottom:none}
+    .hud.rb{right:-14px;top:-14px;border-left:none;border-bottom:none}
+    .hud.lo{left:-14px;bottom:-14px;border-right:none;border-top:none}
+    .hud.ro{right:-14px;bottom:-14px;border-left:none;border-top:none}
+    #hud-label{text-align:center;font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.2em;margin-bottom:18px}
+    #book-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:30px;position:relative;z-index:1}
     #book-controls button{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:46px;height:46px;border-radius:50%;font-size:18px;cursor:pointer;transition:all .2s;-webkit-appearance:none;appearance:none}
-    #book-controls button:hover:not(:disabled){border-color:var(--red);color:var(--red)}
+    #book-controls button:hover:not(:disabled){border-color:var(--red);color:var(--red);box-shadow:0 0 14px rgba(222,49,21,.3)}
     #book-controls button:disabled{opacity:.3;cursor:default}
     #book-teller{font-family:var(--mono);font-size:13.5px;color:var(--steel);min-width:64px;text-align:center}
-    #book-acties{display:flex;gap:16px;justify-content:center;margin-top:30px;flex-wrap:wrap}
-    .book-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#556069;margin-top:14px}
-    /* fullscreen leesweergave */
+    /* filmstrip */
+    #strip{display:flex;gap:10px;justify-content:flex-start;overflow-x:auto;padding:18px 4px 8px;margin-top:10px;position:relative;z-index:1;scrollbar-width:thin}
+    #strip img{height:56px;width:auto;border-radius:2px;border:2px solid var(--line);cursor:pointer;opacity:.55;transition:all .2s;flex:none}
+    #strip img:hover{opacity:.9}
+    #strip img.actief{border-color:var(--red);opacity:1;box-shadow:0 0 12px rgba(222,49,21,.35)}
+    #book-acties{display:flex;gap:16px;justify-content:center;margin-top:26px;flex-wrap:wrap;position:relative;z-index:1}
+    .book-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#556069;margin-top:12px;position:relative;z-index:1}
     #lees{display:none;position:fixed;inset:0;z-index:99;background:rgba(6,9,12,.97);overflow:auto;-webkit-overflow-scrolling:touch}
     #lees.open{display:block}
-    #lees img{display:block;margin:60px auto 90px;width:min(1400px,96vw);height:auto}
+    #lees img{display:block;margin:60px auto 90px;width:min(1600px,96vw);height:auto}
     #lees-sluit{position:fixed;top:16px;right:16px;z-index:2;background:var(--bg2);border:1px solid var(--line);color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;-webkit-appearance:none;appearance:none}
     #lees-nav{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:14px;align-items:center;background:rgba(17,22,28,.92);border:1px solid var(--line);border-radius:30px;padding:8px 16px}
     #lees-nav button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:6px 10px;-webkit-appearance:none;appearance:none}
     #lees-nav span{font-family:var(--mono);font-size:13px;color:var(--steel)}
+    @media(max-width:900px){
+      #boek{-webkit-box-reflect:none;transform:none}
+      #book-page{max-height:calc(100vh - 290px)}
+      .hud{display:none}
+    }
   </style>
-  <div id="book-stage" class="reveal">
-    <div id="book-frame" aria-label="Bedrijfsbrochure Van Dis Solutions, bladerbaar">
-      <img id="book-page" src="/img/brochure/blad-v6-1.webp" width="1406" height="1988" alt="Brochurepagina 1: cover — Uw partner in industriële automatisering en paneelbouw">
+  <div id="podium" class="reveal">
+    <div id="hud-label">// BEDRIJFSBROCHURE 2026 — 10 PAGINA'S</div>
+    <div id="stage3d">
+      <div id="boek">
+        <div id="boek-wrap">
+          <span class="hud lb"></span><span class="hud rb"></span><span class="hud lo"></span><span class="hud ro"></span>
+          <img id="book-page" src="/img/brochure/blad-v6-1.webp" alt="Brochurepagina 1: cover — Uw partner in industriële automatisering en paneelbouw">
+          <div id="leaf"><img class="voor" src="" alt=""><img class="achter" src="" alt=""></div>
+        </div>
+      </div>
     </div>
-    <div class="book-hint">▸ Pijltjes of vegen om te bladeren · tik op de pagina om te lezen en in te zoomen</div>
+    <div class="book-hint">▸ Blader met de pijlen, veeg, of klik op de pagina om te lezen en in te zoomen</div>
     <div id="book-controls">
       <button id="bk-vorige" aria-label="Vorige pagina">←</button>
       <span id="book-teller">1 / 10</span>
       <button id="bk-volgende" aria-label="Volgende pagina">→</button>
     </div>
+    <div id="strip" aria-label="Paginaminiaturen"></div>
     <div id="book-acties">
       <a class="btn primary" href="/docs/vandis-brochure.pdf" download>Download de PDF</a>
       <a class="btn ghost" href="/contact/">Vragen? Plan een adviesgesprek</a>
@@ -112,51 +148,69 @@
     var totaal=10, i=1, bezig=false, multi=false;
     var basis = matchMedia('(min-width: 900px)').matches ? '/img/brochure/breed-v3-' : '/img/brochure/blad-v6-';
     var img=document.getElementById('book-page');
+    var leaf=document.getElementById('leaf');
+    var leafVoor=leaf.querySelector('.voor'), leafAchter=leaf.querySelector('.achter');
     var teller=document.getElementById('book-teller');
     var vorige=document.getElementById('bk-vorige');
     var volgende=document.getElementById('bk-volgende');
     var lees=document.getElementById('lees');
     var leesImg=document.getElementById('lees-img');
     var leesTeller=document.getElementById('lees-teller');
-    for(var p=2;p<=totaal;p++){ new Image().src=basis+p+'.webp'; }
+    var strip=document.getElementById('strip');
+    var boek=document.getElementById('boek');
+    function src(n){return basis+n+'.webp';}
+    for(var p=1;p<=totaal;p++){
+      new Image().src=src(p);
+      var t=document.createElement('img');
+      t.src=src(p); t.alt='Pagina '+p; t.dataset.n=p;
+      if(p===1)t.classList.add('actief');
+      t.addEventListener('click',function(){spring(+this.dataset.n);});
+      strip.appendChild(t);
+    }
     function sync(){
       teller.textContent=i+' / '+totaal;
       leesTeller.textContent=i+' / '+totaal;
       vorige.disabled=(i===1); volgende.disabled=(i===totaal);
-      leesImg.src=basis+i+'.webp';
+      leesImg.src=src(i);
+      [].forEach.call(strip.children,function(t){t.classList.toggle('actief',+t.dataset.n===i);});
+      var actief=strip.querySelector('.actief');
+      if(actief)actief.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
     }
     function toon(n, richting){
-      if(bezig||n<1||n>totaal)return;
+      if(bezig||n<1||n>totaal||n===i)return;
       bezig=true;
-      img.classList.add(richting>0?'uit-r':'uit-l');
-      setTimeout(function(){
-        i=n;
-        img.src=basis+i+'.webp';
-        img.alt='Brochurepagina '+i+' van Van Dis Solutions';
-        sync();
-        img.classList.remove('uit-r','uit-l');
-        img.classList.add(richting>0?'uit-l':'uit-r');
-        requestAnimationFrame(function(){requestAnimationFrame(function(){
-          img.classList.remove('uit-r','uit-l');
-          setTimeout(function(){bezig=false;},260);
-        });});
-      },260);
+      var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduced){i=n;img.src=src(i);sync();bezig=false;return;}
+      // blad omslaan: voorkant = huidige, achterkant = nieuwe
+      leafVoor.src=src(richting>0?i:n);
+      leafAchter.src=src(richting>0?n:i);
+      leaf.style.transformOrigin=richting>0?'left center':'left center';
+      leaf.style.transition='none';
+      leaf.style.transform=richting>0?'rotateY(0deg)':'rotateY(-180deg)';
+      leaf.classList.add('aan');
+      if(richting>0){ i=n; img.src=src(i); }
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        leaf.style.transition='transform .55s cubic-bezier(.4,.1,.3,1)';
+        leaf.style.transform=richting>0?'rotateY(-180deg)':'rotateY(0deg)';
+        setTimeout(function(){
+          if(richting<0){ i=n; img.src=src(i); }
+          leaf.classList.remove('aan');
+          sync(); bezig=false;
+        },560);
+      });});
+      if(richting>0){sync();}
     }
-    img.src=basis+'1.webp';
-    sync();
+    function spring(n){ toon(n, n>i?1:-1); }
+    img.src=src(1); sync();
     vorige.addEventListener('click',function(){toon(i-1,-1)});
     volgende.addEventListener('click',function(){toon(i+1,1)});
     addEventListener('keydown',function(e){
-      if(e.key==='Escape')lees.classList.remove('open');
+      if(e.key==='Escape')sluit();
       if(e.key==='ArrowRight')toon(i+1,1);
       if(e.key==='ArrowLeft')toon(i-1,-1);
     });
-    // vegen om te bladeren — maar pinch (2 vingers) wordt volledig genegeerd
     var sx=null;
-    img.addEventListener('touchstart',function(e){
-      if(e.touches.length>1){multi=true;sx=null;return;}
-      multi=false;sx=e.touches[0].clientX;
-    },{passive:true});
+    img.addEventListener('touchstart',function(e){ if(e.touches.length>1){multi=true;sx=null;return;} multi=false;sx=e.touches[0].clientX; },{passive:true});
     img.addEventListener('touchmove',function(e){ if(e.touches.length>1){multi=true;sx=null;} },{passive:true});
     img.addEventListener('touchend',function(e){
       if(multi||sx===null)return;
@@ -164,8 +218,17 @@
       if(Math.abs(dx)>50){dx<0?toon(i+1,1):toon(i-1,-1);}
       sx=null;
     },{passive:true});
-    // tik op de pagina = leesweergave (fullscreen, vrij zoomen/scrollen)
-    document.getElementById('book-frame').addEventListener('click',function(){
+    // 3D-tilt met de muis (alleen desktop)
+    if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var stage=document.getElementById('stage3d');
+      stage.addEventListener('mousemove',function(e){
+        var r=stage.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+        boek.style.transform='rotateX('+(4-py*5)+'deg) rotateY('+(px*6)+'deg)';
+      });
+      stage.addEventListener('mouseleave',function(){boek.style.transform='rotateX(4deg)';});
+    }
+    document.getElementById('boek-wrap').addEventListener('click',function(){
       lees.classList.add('open');
       document.body.style.overflow='hidden';
     });
