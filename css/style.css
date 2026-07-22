@@ -251,3 +251,24 @@ img{height:auto}
 
 /* canvas mag nooit breder dan zijn kolom */
 canvas{max-width:100%}
+
+/* ===== bel-knop in header ===== */
+header{justify-content:flex-start;gap:14px}
+header .logo{margin-right:auto}
+nav{order:2}
+.tel-knop{order:3;display:flex;align-items:center;gap:8px;color:var(--txt);text-decoration:none;border:1px solid var(--line);padding:9px 15px;border-radius:3px;font-size:14px;transition:all .2s;white-space:nowrap}
+.tel-knop svg{width:15px;height:15px;fill:currentColor}
+.tel-knop:hover{border-color:var(--red);color:var(--red)}
+#hamburger{order:4}
+@media(max-width:900px){
+  .tel-knop{padding:9px 11px}
+  .tel-knop span{display:none}
+}
+
+/* ===== zwevende WhatsApp-knop ===== */
+.wa-knop{position:fixed;right:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.45);transition:transform .2s,box-shadow .2s}
+.wa-knop svg{width:30px;height:30px;fill:#fff}
+.wa-knop:hover{transform:scale(1.08);box-shadow:0 8px 26px rgba(37,211,102,.45)}
+@media(max-width:900px){.wa-knop{right:14px;bottom:14px;width:52px;height:52px}}
