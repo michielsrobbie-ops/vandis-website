@@ -1,0 +1,31 @@
+# Automatische deploy naar Telit-hosting bij elke push
+# Vereist 3 secrets in GitHub (Settings > Secrets and variables > Actions):
+#   FTP_SERVER    bijv. srv1a.telithosting.nl
+#   FTP_USERNAME  het FTP-account van de hosting
+#   FTP_PASSWORD  het bijbehorende wachtwoord
+name: Deploy naar Telit
+
+on:
+  push:
+    branches: [master, main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.claude/**
+            vercel.json
+            _redirects
